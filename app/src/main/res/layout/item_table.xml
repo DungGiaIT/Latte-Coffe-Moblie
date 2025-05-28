@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:gravity="center"
+    android:background="@drawable/bg_table_item"
+    android:elevation="4dp">
+
+    <!-- Số bàn -->
+    <TextView
+        android:id="@+id/tableNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#Bàn 01"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#3E2723" />
+
+    <!-- Icon trạng thái -->
+    <ImageView
+        android:id="@+id/tableIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Trạng thái bàn"
+        android:src="@drawable/ic_coffee_clock" />
+
+    <!-- Trạng thái mô tả -->
+    <TextView
+        android:id="@+id/tableStatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đang phục vụ"
+        android:textColor="#6D4C41"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

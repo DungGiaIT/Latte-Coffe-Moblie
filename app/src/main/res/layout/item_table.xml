@@ -25,7 +25,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
         android:contentDescription="Trạng thái bàn"
-        android:src="@drawable/ic_coffee_clock" />
+        android:src="@drawable/ic_reserved" />
 
     <!-- Trạng thái mô tả -->
     <TextView

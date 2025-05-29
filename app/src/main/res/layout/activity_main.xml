@@ -47,15 +47,11 @@
         android:layout_weight="1">
 
         <!-- GridView bàn cafe -->
-        <GridView
-            android:id="@+id/gridView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTables"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:numColumns="2"
-            android:verticalSpacing="16dp"
-            android:horizontalSpacing="16dp"
-            android:gravity="center"
-            android:stretchMode="columnWidth" />
+            android:padding="8dp"/>
 
         <!-- Thông tin nhân viên (ẩn mặc định) -->
         <LinearLayout

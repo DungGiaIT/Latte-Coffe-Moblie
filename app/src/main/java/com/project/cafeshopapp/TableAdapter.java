@@ -58,7 +58,7 @@ public class TableAdapter extends BaseAdapter {
         switch (table.getStatus()) {
 
             case "serving":
-                holder.icon.setImageResource(R.drawable.ic_coffee_logo);
+                holder.icon.setImageResource(R.drawable.ic_reserved);
                 holder.statusText.setText("Đang phục vụ");
                 break;
             case "paid":

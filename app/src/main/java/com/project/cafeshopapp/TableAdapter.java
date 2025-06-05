@@ -11,9 +11,9 @@ import java.util.List;
 
 public class TableAdapter extends BaseAdapter {
     private Context context;
-    private List<Table> tableList;
+    private List<TableModel> tableList; // Sửa thành List<TableModel>
 
-    public TableAdapter(Context context, List<Table> tableList) {
+    public TableAdapter(Context context, List<TableModel> tableList) {
         this.context = context;
         this.tableList = tableList;
     }
@@ -53,32 +53,32 @@ public class TableAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Table table = tableList.get(position);
+        TableModel table = tableList.get(position); // Sử dụng TableModel
 
-        switch (table.getStatus()) {
+//        switch (table.getStatus()) {
+//            case "serving":
+//                holder.icon.setImageResource(R.drawable.ic_reserved);
+//                holder.statusText.setText("Đang phục vụ");
+//                break;
+//            case "paid":
+//                holder.icon.setImageResource(R.drawable.ic_check_done);
+//                holder.statusText.setText("Đã thanh toán");
+//                break;
+//            case "waiting":
+//                holder.icon.setImageResource(R.drawable.ic_coffee_clock);
+//                holder.statusText.setText("Đang chờ");
+//                break;
+//            case "empty":
+//            default:
+//                holder.icon.setImageResource(R.drawable.ic_table);
+//                holder.statusText.setText("Trống");
+//                break;
+//        }
 
-            case "serving":
-                holder.icon.setImageResource(R.drawable.ic_reserved);
-                holder.statusText.setText("Đang phục vụ");
-                break;
-            case "paid":
-                holder.icon.setImageResource(R.drawable.ic_check_done);
-                holder.statusText.setText("Đã thanh toán");
-                break;
-            case "waiting":
-                holder.icon.setImageResource(R.drawable.ic_coffee_clock);
-                holder.statusText.setText("Đang chờ");
-                break;
-            default:
-                holder.icon.setImageResource(R.drawable.ic_table);
-                holder.statusText.setText("Trống");
-                break;
-        }
-
-        String formattedNumber = String.format("#Bàn %02d", table.getNumber());
+        // Sử dụng table.getTableId() thay vì table.getNumber()
+        String formattedNumber = String.format("#Bàn %02d", table.getTableId());
         holder.number.setText(formattedNumber);
 
         return convertView;
     }
 }
-

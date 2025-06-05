@@ -1,20 +1,21 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
 }
 
 android {
     namespace = "com.project.cafeshopapp"
-    compileSdk = 35  // ✅ nâng lên 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.project.cafeshopapp"
         minSdk = 21
-        targetSdk = 33  // ⚠️ bạn có thể giữ nguyên targetSdk 33 nếu không muốn thay đổi hành vi hệ thống
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
+
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -24,8 +25,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {
@@ -34,19 +35,24 @@ android {
 }
 
 dependencies {
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.activity:activity-ktx:1.8.2")
 
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.gridlayout:gridlayout:1.0.0")
     implementation("androidx.cardview:cardview:1.0.0")
 
-    implementation("androidx.room:room-runtime:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    // Retrofit & Gson
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10")
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    // Logging Interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
